@@ -1,7 +1,7 @@
-import React, {Fragment} from 'react'
-// import './App.css';
-import Header from './Components/Layouts/Header';
-import Meals from './Components/Meals/Meals';
+import React, { Fragment } from "react";
+import Header from "./Components/Layouts/Header";
+import Meals from "./Components/Meals/Meals";
+import MealItemsForms from "./Components/Meals/MealItems/MealItemsForms";
 function App() {
   return (
     <Fragment>
@@ -9,8 +9,8 @@ function App() {
       <main>
         <Meals></Meals>
       </main>
+      <MealItemsForms/>
     </Fragment>
-    
   );
 }
 
