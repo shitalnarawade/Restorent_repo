@@ -32,7 +32,7 @@ const DUMMY_MEALS = [
 
 function AvilableMeals() {
   const mealsList = DUMMY_MEALS.map((meal) => (
-    <li>
+    <li key={meal.id}>
       <MealItems
         key={meal.id}
         name={meal.name}
