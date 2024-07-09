@@ -3,9 +3,13 @@ import CartIcon from '../Carts/CartIcon'
 import './HeaderButton.css'
 
 function HeaderButton(props) {
+  // const onShowCart = () =>{
+  //   props.onClick();
+  // }
   return (
     <>
-   <button className='button'>
+   {/* <button className='button' onClick={onShowCart} > */} 
+   <button className='button' onClick={props.onClick} >
    <span className='icon'>
     <CartIcon />
    </span>

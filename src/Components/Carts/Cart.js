@@ -7,14 +7,14 @@ function Cart(props) {
     { id: "1", name: "Sushi", amount: "78", price: "14" },
   ].map((item) => <li>{ item.name}</li>)}</ul>;
   return (
-    <Model>
+    <Model onClose={props.onClose} >
       {CartItems}
       <div className="total">
       <span>Total Amount</span>
        <span>90.82</span>
       </div>
       <div className="actions">
-        <button className="button--alt">Close</button>
+        <button className="button--alt" onClick={props.onClose}>Close</button>
         <button className="button">Order</button>
       </div>
     </Model>
