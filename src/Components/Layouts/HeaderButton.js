@@ -7,18 +7,21 @@ import './HeaderButton.css'
 function HeaderButton(props) {
   
   const cartCtx = useContext(CartContent);
-  // const numberofCartItems = cartCtx.items.length;
 
   const numberofCartItems = cartCtx.items.reduce((number, item) => {
-    return number + item.amount;
+    const amount = typeof item.amount === 'number' ;
+    
+    return number + amount;
   }, 0);
+ 
+  
 
   // const onShowCart = () =>{
   //   props.onClick();
   // }
   return (
-    <>
-   {/* <button className='button' onClick={onShowCart} > */} 
+    <>  
+   {/* <button className='button' onClick={onShowCart} >  */}
    <button className='button' onClick={props.onClick} >
    <span className='icon'>
     <CartIcon />

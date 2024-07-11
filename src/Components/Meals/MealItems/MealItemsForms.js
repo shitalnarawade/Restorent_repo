@@ -1,24 +1,26 @@
-import React, { useRef } from "react";
+import React, {useState, useRef } from "react";
 import Input from "../../UI/Input";
 import "./MealItemsForms.css";
 
 function MealItemsForms(props) {
-  // const [amountIsValid, setAmountIsValid]= useState([])
+  const [amountIsValid, setAmountIsValid]= useState(true)
   const amountInputRef = useRef();
   const submitHandler = (event) => {
     event.preventDefault();
-    const enteredAmount = amountInputRef.current.value;
+    const enteredAmount = amountInputRef.current.value.trim();
+    
    // convert string into number
     const enteredAmountNumber = +enteredAmount;
 
     if (
-      enteredAmount.trim().length === 0 ||
       enteredAmountNumber < 1 ||
-      enteredAmountNumber > 5
+      enteredAmountNumber > 8 ||
+      enteredAmount.trim().length === 0
     ) {
-      // setAmountIsValid(false);
+      setAmountIsValid(false);
       return;
     }
+    setAmountIsValid(true); 
     props.onAddToCart(enteredAmountNumber);
   };
 
@@ -29,16 +31,18 @@ function MealItemsForms(props) {
         label="Amount"
         input={{
           id: "amount",
-          type: "text",
+          type: "number",
           min: "1",
-          max: "5",
+          max: "8",
           step: "1",
           defaultValue: "1",
         }}
       />
-
-      <button>+ Add</button>
-      {/* {!amountIsValid && <p>Please Enter Valid Input Value (1 - 5 ).</p>} */}
+        {!amountIsValid && (
+        <p className="error-text">Please enter a valid input value (1 - 8).</p>
+      )}
+      <button type="submit">+ Add</button>
+      
     </form>
   );
 }

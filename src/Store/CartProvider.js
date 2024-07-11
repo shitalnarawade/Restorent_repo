@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { createContext, useState } from 'react';
+
 import CartContent from "./CartContent";
+export const CartContext = createContext();
+
 
 const defaultCartState = {
   items: [],
@@ -57,3 +60,30 @@ function CartProvider(props) {
 }
 
 export default CartProvider;
+
+
+
+
+// CartProvider.js
+
+
+// const CartProvider = (props) => {
+//   const [cart, setCart] = useState([]);
+
+//   const addToCart = (item) => {
+//     setCart([...cart, item]);
+//   };
+
+//   const removeFromCart = (itemId) => {
+//     setCart(cart.filter((item) => item.id !== itemId));
+//   };
+
+//   return (
+//     <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+//       {props.children}
+//     </CartContext.Provider>
+//   );
+// };
+
+// export default CartProvider;
+

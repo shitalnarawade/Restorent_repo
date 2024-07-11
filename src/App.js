@@ -18,9 +18,9 @@ function App(props) {
     <CartProvider>
      {showCart && <Cart onClose={hideCartHandler}/>}
       <Header onShowCart={showCartHandler} />
-      <main>
+      
         <Meals></Meals>
-      </main>
+      
       <MealItemsForms/> 
     </CartProvider>
   );
